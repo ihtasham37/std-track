@@ -1,29 +1,37 @@
-# StdTrack AI - Advanced Learning Roadmap Hub
+# StdTrack AI - Advanced Learning Roadmap Hub 
 
-StdTrack AI is a production-ready web application that leverages the power of Google's Gemini 3 Pro model to generate hyper-personalized learning blueprints, university suggestions, scholarship opportunities, and career roadmaps.
+**StdTrack AI** is a production-ready web application built for the **Google Gemini 3 Hackathon**. It leverages the power of Google's Gemini 3 Pro model to generate hyper-personalized learning blueprints, university suggestions, scholarship opportunities, and career roadmaps.  
 
-## 🚀 Key Features
+>  **Hackathon Context:** This project was developed specifically for participation in the Gemini 3 Hackathon to demonstrate AI-powered personalized learning and career guidance solutions.
+
+---
+
+##  Key Features
 
 - **Four Specialized AI Modes**:
-  - **Skill Architect**: Generates curated learning paths with YouTube and platform resources.
-  - **University Scout**: Identifies top global institutions matching your academic goals.
-  - **Scholarship Finder**: Locates financial aid and global scholarship opportunities.
-  - **Job Agent**: Provides tailored job role suggestions and career strategy.
-- **Neural Interface (Chat)**: Deep-dive into any suggestion with a real-time AI Academic Advisor.
-- **Persistent Memory**: Full Firebase integration allows you to save your profile and operation history.
-- **Identity Hub**: Manage your profile and rotate secure authentication passkeys.
-- **Export Capabilities**: Download any generated roadmap as a structured `.txt` report.
-- **Production Optimized**: Built with React 19, Tailwind CSS, and optimized for zero-configuration Netlify deployment.
+  - **Skill Architect**: Generates curated learning paths with YouTube and platform resources.  
+  - **University Scout**: Identifies top global institutions matching your academic goals.  
+  - **Scholarship Finder**: Locates financial aid and global scholarship opportunities.  
+  - **Job Agent**: Provides tailored job role suggestions and career strategy.  
+- **Neural Interface (Chat)**: Deep-dive into any suggestion with a real-time AI Academic Advisor.  
+- **Persistent Memory**: Full Firebase integration allows you to save your profile and operation history.  
+- **Identity Hub**: Manage your profile and rotate secure authentication passkeys.  
+- **Export Capabilities**: Download any generated roadmap as a structured `.txt` report.  
+- **Production Optimized**: Built with React 19, Tailwind CSS, and optimized for zero-configuration Netlify deployment.  
 
-## 🛠️ Tech Stack
+---
 
-- **Frontend**: React 19, TypeScript, Tailwind CSS
-- **Icons**: Lucide React
-- **AI Engine**: Google Gemini 3 Pro (`@google/genai`)
-- **Backend/Auth**: Firebase (Authentication & Realtime Database)
-- **Deployment**: Netlify
+##  Tech Stack
 
-## ⚙️ Local Setup
+- **Frontend**: React 19, TypeScript, Tailwind CSS  
+- **Icons**: Lucide React  
+- **AI Engine**: Google Gemini 3 Pro (`@google/genai`)  
+- **Backend/Auth**: Firebase (Authentication & Realtime Database)  
+- **Deployment**: Netlify  
+
+---
+
+##  Local Setup
 
 1. **Clone the repository**:
    ```bash
@@ -36,47 +44,62 @@ StdTrack AI is a production-ready web application that leverages the power of Go
    npm install
    ```
 
-3. **Configure Environment Variables**:
-   The app requires a Google AI Studio API Key. For local development, ensure your environment provides `process.env.API_KEY`.
+3. **Add Your Firebase Configuration** *(Optional but recommended for full functionality)*:
+   - Open `src/services/firebase.ts` (create if missing).  
+   - Replace with your own Firebase project credentials:
+     ```ts
+     import { initializeApp } from "firebase/app";
+     import { getDatabase } from "firebase/database";
 
-4. **Run Development Server**:
+     const firebaseConfig = {
+       apiKey: "YOUR_API_KEY",
+       authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+       databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_PROJECT_ID.appspot.com",
+       messagingSenderId: "YOUR_SENDER_ID",
+       appId: "YOUR_APP_ID"
+     };
+
+     const app = initializeApp(firebaseConfig);
+     export const database = getDatabase(app);
+     ```
+   - This ensures you have full control over user data and persistent storage.
+
+4. **Configure Environment Variables**:
+   - The app requires a Google AI Studio API Key. Ensure your environment provides `process.env.API_KEY` for local development.
+
+5. **Run Development Server**:
    ```bash
    npm run dev
    ```
 
-## 🌐 Netlify Deployment (Step-by-Step)
+---
 
-This project is specifically architected to work on Netlify without needing a `_redirects` file, thanks to its state-driven navigation system.
+##  Netlify Deployment (Step-by-Step)
 
-### 1. Upload to GitHub
-- Create a new repository on GitHub.
-- Push your local files to the repository.
-- **Note**: Do not upload a `.env` file containing your real API keys.
+1. Upload your code to GitHub (do not include `.env` files with real API keys).  
+2. Connect your GitHub repo to [Netlify](https://app.netlify.com/).  
+3. Set Build command: `npm run build`  
+4. Set Publish directory: `dist`  
+5. Add Environment Variable:  
+   - Key: `API_KEY`  
+   - Value: `YOUR_GEMINI_API_KEY_HERE`  
+6. Deploy and enjoy your live site!
 
-### 2. Connect to Netlify
-- Log in to your [Netlify Dashboard](https://app.netlify.com/).
-- Click **Add new site** > **Import an existing project**.
-- Select **GitHub** and authorize the repository.
+---
 
-### 3. Build Settings
-- **Build command**: `npm run build`
-- **Publish directory**: `dist`
+##  Security Note
 
-### 4. Environment Variables (CRITICAL)
-- Go to **Site Configuration** > **Environment variables**.
-- Add a new variable:
-  - **Key**: `API_KEY`
-  - **Value**: `YOUR_GEMINI_API_KEY_HERE`
-- *Note: Without this key, the AI generation will fail and show a descriptive error banner.*
+- Always use your own Firebase configuration for production to retain full control of user data.  
+- Do not commit sensitive keys to public repositories.  
 
-### 5. Deploy
-- Click **Deploy site**.
-- Once the build is finished, your site is live!
+---
 
-## 🔐 Security Note
+##  License
 
-The application uses a pre-configured Firebase instance. For a production environment, it is recommended to replace the configuration in `src/services/firebase.ts` with your own Firebase project credentials to ensure you have full control over your user data.
+MIT License — Feel free to use and modify for personal, hackathon, or commercial projects.  
 
-## 📄 License
+---
 
-MIT License - Feel free to use and modify for your personal or commercial projects.
+> **Hackathon Ready:** Users can now clone this project, add their Firebase credentials, and participate in AI hackathons or build their own learning roadmap apps using Gemini 3.
