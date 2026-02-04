@@ -1,0 +1,5 @@
+{
+  "name": "StdTrack AI",
+  "description": "A personalized AI-powered learning roadmap generator that adapts to your skills, education, and progress using Gemini 3.",
+  "requestFramePermissions": []
+}
