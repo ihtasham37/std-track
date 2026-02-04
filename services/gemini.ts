@@ -1,3 +1,4 @@
+
 import { GoogleGenAI, Type, GenerateContentResponse } from "@google/genai";
 import { UserProfile, AppMode } from "../types";
 
@@ -119,7 +120,7 @@ export async function generateAIContent(mode: AppMode, profile: UserProfile): Pr
     }
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-preview', 
+      model: 'gemini-3-flash-preview', 
       contents: prompt,
       config: { 
         responseMimeType: "application/json", 
@@ -150,7 +151,7 @@ export async function* askAcademicQuestionStream(
     }));
 
     const chat = ai.chats.create({
-      model: 'gemini-3-pro-preview',
+      model: 'gemini-3-flash-preview',
       config: { 
         systemInstruction: `You are an expert academic advisor for StdTrack AI. Context: User is viewing ${context.selectedDetail}. Provide precise, helpful guidance.`,
         temperature: 0.9 
