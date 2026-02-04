@@ -1,16 +1,33 @@
-(profile: UserProfile) => void;
+import React, { useState, useEffect } from 'react';
+import { UserProfile, AppMode } from '../types';
+import { X, Languages, MapPin, Briefcase } from 'lucide-react';
+
+interface Props {
+  mode: AppMode;
+  onSubmit: (profile: UserProfile) => void;
   initialData?: UserProfile | null;
 }
 
 const DynamicForm: React.FC<Props> = ({ mode, onSubmit, initialData }) => {
   const [formData, setFormData] = useState<UserProfile>({
-    name: '', age: 20, education: 'Bachelor\'s Degree', country: '', skills: [], interests: [], targetField: '', targetCountry: '', language: 'English', targetCity: '', targetJob: ''
+    name: '', 
+    age: 20, 
+    education: 'Bachelor\'s Degree', 
+    country: '', 
+    skills: [], 
+    interests: [], 
+    targetField: '', 
+    targetCountry: '', 
+    language: 'English', 
+    targetCity: '', 
+    targetJob: ''
   });
   const [inputVal, setInputVal] = useState('');
 
   useEffect(() => {
     if (initialData) {
       setFormData({
+        ...formData,
         ...initialData,
         skills: initialData.skills || [],
         interests: initialData.interests || []
@@ -37,7 +54,7 @@ const DynamicForm: React.FC<Props> = ({ mode, onSubmit, initialData }) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-black text-white tracking-tight uppercase italic">
           {mode === 'SKILL' ? 'Skill Architect' : mode === 'UNIVERSITY' ? 'University Scout' : mode === 'SCHOLARSHIP' ? 'Scholarship Finder' : 'Job Agent'}
@@ -115,7 +132,7 @@ const DynamicForm: React.FC<Props> = ({ mode, onSubmit, initialData }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                <div className="space-y-1">
                   <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Study Field</label>
-                  <input type="text" required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl outline-none text-sm text-white" value={formData.targetField || ''} onChange={e => setFormData({...formData, targetField: e.target.value, interests: [e.target.value]})} />
+                  <input type="text" required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl outline-none text-sm text-white" value={formData.targetField || ''} onChange={e => setFormData({...formData, targetField: e.target.value})} />
                </div>
                <div className="space-y-1">
                   <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Target Country</label>
