@@ -1,6 +1,6 @@
 # StdTrack AI - Advanced Learning Roadmap Hub 
 
-**StdTrack AI** is a production-ready web application built for the **Google Gemini 3 Hackathon**. It leverages the power of Google's Gemini 3 Pro model to generate hyper-personalized learning blueprints, university suggestions, scholarship opportunities, and career roadmaps.  
+**StdTrack AI** is a production-ready web application built for the **Google Gemini 3 Hackathon**. It leverages the power of Google's Gemini 3  model to generate hyper-personalized learning blueprints, university suggestions, scholarship opportunities, and career roadmaps.  
 
 >  **Hackathon Context:** This project was developed specifically for participation in the Gemini 3 Hackathon to demonstrate AI-powered personalized learning and career guidance solutions.
 
@@ -13,7 +13,7 @@
   - **University Scout**: Identifies top global institutions matching your academic goals.  
   - **Scholarship Finder**: Locates financial aid and global scholarship opportunities.  
   - **Job Agent**: Provides tailored job role suggestions and career strategy.  
-- **Neural Interface (Chat)**: Deep-dive into any suggestion with a real-time AI Academic Advisor.  
+- **Neural Interface Chat**: Deep-dive into any suggestion with a real-time AI Academic Advisor.  
 - **Persistent Memory**: Full Firebase integration allows you to save your profile and operation history.  
 - **Identity Hub**: Manage your profile and rotate secure authentication passkeys.  
 - **Export Capabilities**: Download any generated roadmap as a structured `.txt` report.  
